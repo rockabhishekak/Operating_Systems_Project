@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energy-Efficient CPU Scheduler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <main class="container">
+        <header class="hero">
+            <p class="kicker">Operating Systems Project</p>
+            <h1>Energy-Efficient CPU Scheduling Algorithm</h1>
+            <p class="sub">
+                DVFS + Thermal-Aware Scheduling simulation with energy and performance comparison.
+            </p>
+        </header>
+
+        <section class="card reveal">
+            <h2>Process Input</h2>
+            <p class="hint">Add process details, then run the scheduler.</p>
+
+            <div class="table-wrap">
+                <table id="processTable">
+                    <thead>
+                        <tr>
+                            <th>Process ID</th>
+                            <th>Burst Time</th>
+                            <th>Priority (1 high)</th>
+                            <th>Temperature (C)</th>
+                            <th>Base Power (W)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="processBody"></tbody>
+                </table>
+            </div>
+
+            <div class="actions">
+                <button id="addRowBtn" class="btn soft">Add Process</button>
+                <button id="runBtn" class="btn solid">Run Scheduler</button>
+            </div>
+        </section>
+
+        <section class="card reveal" id="resultsSection">
+            <h2>Scheduling Results</h2>
+            <div id="summary" class="summary-grid"></div>
+
+            <div class="table-wrap">
+                <table id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Process</th>
+                            <th>DVFS</th>
+                            <th>Freq (GHz)</th>
+                            <th>Volt (V)</th>
+                            <th>Exec Time</th>
+                            <th>Power (W)</th>
+                            <th>Energy (J)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultBody"></tbody>
+                </table>
+            </div>
+
+            <div class="graph-card">
+                <h3>Energy vs Performance Comparison</h3>
+                <canvas id="compareChart" width="800" height="340"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

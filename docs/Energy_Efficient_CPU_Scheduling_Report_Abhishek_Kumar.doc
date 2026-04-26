@@ -1,0 +1,100 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Times New Roman;}{\f1 Arial;}}
+\paperw12240\paperh15840\margl1440\margr1440\margt1440\margb1440
+\fs24
+\pard\qc\b\f1\fs36 ENERGY-EFFICIENT CPU SCHEDULING ALGORITHM\par
+\pard\qc\fs24 Final Year Project Report\par
+\pard\qc\fs20\par
+\pard\ql\f0\fs24 \b Student Details\b0\par
+Name: Abhishek kumar\par
+Roll No: 50\par
+Registration Number: 12405811\par
+\par
+\b Abstract\b0\par
+This project presents an energy-efficient CPU scheduling approach that combines Dynamic Voltage and Frequency Scaling (DVFS) and thermal-aware scheduling. The goal is to reduce power consumption while maintaining acceptable performance and fairness. The algorithm is designed for mobile, embedded, and battery-powered devices where energy and heat are major constraints.\par
+\par
+\b 1. Introduction to CPU Scheduling\b0\par
+CPU scheduling is the operating system mechanism that decides which process runs on the CPU and for how long. Effective scheduling improves CPU utilization, process response time, throughput, and overall system behavior. Traditional scheduling methods focus mostly on performance, but modern systems also require power-aware and temperature-aware decisions.\par
+\par
+\b 2. Types of CPU Scheduling Algorithms\b0\par
+\b FCFS (First Come First Serve):\b0 Processes execute in arrival order. It is simple but may cause long waiting for short jobs.\par
+\b SJF (Shortest Job First):\b0 Shortest burst process executes first. It improves average waiting time but may starve long processes.\par
+\b Round Robin:\b0 Each process receives fixed CPU quantum. It improves fairness but can increase context-switch overhead.\par
+\b Priority Scheduling:\b0 Higher-priority process runs first. Good for urgent tasks, but low-priority tasks may starve without aging.\par
+\par
+\b 3. Energy Efficiency in Operating Systems\b0\par
+Energy efficiency in OS means completing workloads with lower power usage while preserving usability and performance. This is critical for battery-operated systems, embedded devices, and thermally constrained hardware.\par
+\par
+\b 4. DVFS (Dynamic Voltage and Frequency Scaling)\b0\par
+DVFS changes CPU frequency and voltage based on workload demand. Lowering voltage and frequency reduces energy usage significantly. Dynamic power is approximately proportional to V^2*f, so voltage reduction gives large savings.\par
+\par
+\b 5. Thermal-Aware Scheduling\b0\par
+Thermal-aware scheduling monitors temperature while selecting tasks and CPU speed. If temperature is high, the scheduler reduces frequency to avoid overheating and thermal throttling. If urgent tasks exist and temperature is safe, higher frequency can be used.\par
+\par
+\b 6. Problem Statement\b0\par
+Conventional scheduling methods do not directly optimize energy and thermal behavior. This can lead to high battery drain and increased device temperature, especially in mobile and embedded systems.\par
+\par
+\b 7. Project Objectives\b0\par
+1. Design an energy-aware scheduling algorithm using DVFS.\par
+2. Include thermal state in scheduling decisions.\par
+3. Balance performance, fairness, and power efficiency.\par
+4. Compare baseline scheduling with optimized scheduling.\par
+5. Demonstrate implementation in C and web interface.\par
+\par
+\b 8. Proposed Algorithm (Step-by-Step)\b0\par
+1. Read process inputs: burst time, priority, temperature, base power.\par
+2. Define DVFS levels: LOW, MEDIUM, HIGH with specific frequency-voltage pairs.\par
+3. Compute process score using priority, short-job bonus, fairness aging, and thermal penalty.\par
+4. Select the highest-score unscheduled process.\par
+5. Choose DVFS level using decision logic:\par
+   - If temperature is very high, choose LOW.\par
+   - If process is urgent (high priority or short burst), choose HIGH.\par
+   - If temperature is moderately high, choose MEDIUM.\par
+   - For long tasks, prefer LOW to save power.\par
+6. Compute execution time, dynamic power, and energy for selected process.\par
+7. Update schedule metrics and repeat until all processes complete.\par
+8. Compare optimized results with baseline FCFS fixed-frequency results.\par
+\par
+\b 9. Pseudocode\b0\par
+Input N processes (burst, priority, temperature, basePower)\par
+Define DVFS levels (LOW, MEDIUM, HIGH)\par
+Compute baseline energy/time with fixed high frequency\par
+While unscheduled processes remain:\par
+  pick process with highest score\par
+  choose DVFS level from rules\par
+  compute execution time and energy\par
+  update totals and thermal state\par
+End While\par
+Print comparison: baseline vs optimized\par
+\par
+\b 10. Sample Result Summary\b0\par
+Baseline Energy: 640.00 J\par
+Optimized Energy: 512.89 J\par
+Energy Saved: 19.86\'25\par
+Optimized Order: P2 -> P4 -> P1 -> P3\par
+\par
+\b 11. Advantages\b0\par
+1. Reduces total energy consumption.\par
+2. Handles thermal constraints effectively.\par
+3. Maintains responsiveness for urgent processes.\par
+4. Provides fair scheduling with aging term.\par
+\par
+\b 12. Limitations\b0\par
+1. Uses simplified simulation model.\par
+2. Real hardware power/thermal behavior can differ.\par
+3. More complex than basic FCFS or Round Robin.\par
+\par
+\b 13. Web UI Integration\b0\par
+The project includes a modern web interface where users enter process data and run the scheduler. The UI displays scheduling results, energy comparison, and a graph for energy vs performance. C logic can be connected through backend APIs using Node.js and child process execution.\par
+\par
+\b 14. Future Improvements\b0\par
+1. Add real hardware temperature sensor integration.\par
+2. Extend to multi-core scheduling and migration.\par
+3. Use machine learning for DVFS prediction.\par
+4. Include battery state-aware scheduling policy.\par
+\par
+\b Conclusion\b0\par
+This project demonstrates a practical and beginner-friendly energy-efficient CPU scheduler. By combining DVFS and thermal-aware logic, the scheduler achieves energy savings with acceptable performance trade-off, making it useful for modern low-power computing systems.\par
+\par
+\pard\qr\i End of Report\i0\par
+}
